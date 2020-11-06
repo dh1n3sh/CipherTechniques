@@ -1,3 +1,5 @@
+package com.cipher.ciphertechniques;
+
 import java.util.*;
 import java.io.*;
 public class HillCipher {
