@@ -1,10 +1,12 @@
+package com.cipher.ciphertechniques;
+
 // Java program to demonstrate working of extended 
 // Euclidean Algorithm 
 
 import java.util.*; 
 import java.lang.*; 
 
-class GFG 
+class Euclid 
 { 
 	// extended Euclidean Algorithm 
 	public static int gcdExtended(int a, int b, int x, int y) 

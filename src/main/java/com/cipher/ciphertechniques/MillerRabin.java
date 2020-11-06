@@ -1,8 +1,10 @@
+package com.cipher.ciphertechniques;
+
 // Java program Miller-Rabin primality test 
 import java.io.*; 
 import java.math.*; 
 
-class GFG { 
+class MillerRabin { 
 
 	// Utility function to do modular 
 	// exponentiation. It returns (x^y) % p 

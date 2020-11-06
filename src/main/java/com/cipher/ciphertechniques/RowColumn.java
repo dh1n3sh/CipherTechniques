@@ -5,10 +5,6 @@
  */
 package com.cipher.ciphertechniques;
 
-/**
- *
- * @author dhinesh
- */
 import java.util.*;
 public class RowColumn {
  public static String Encrypt(String text, String key){

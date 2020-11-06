@@ -1,3 +1,5 @@
+package com.cipher.ciphertechniques;
+
 import java.util.Scanner;
 public class md5
 {
