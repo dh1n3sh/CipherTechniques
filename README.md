@@ -21,3 +21,4 @@ DES Algorithm : [Source 1](http://page.math.tu-berlin.de/~kant/teaching/hess/kry
 14 [CRT](src/main/java/com/cipher/ciphertechniques/CRT.java)   
 15 [Euclid](src/main/java/com/cipher/ciphertechniques/Euclid.java)   
 16 [md5](src/main/java/com/cipher/ciphertechniques/md5.java)   
+17 [ModInverse](src/main/java/com/cipher/ciphertechniques/ModInverse.java)   
