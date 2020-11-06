@@ -5,10 +5,6 @@
  */
 package com.cipher.ciphertechniques.AES;
 
-/**
- *
- * @author dhinesh
- */
 import java.io.UnsupportedEncodingException;
 import java.security.*;
 import java.util.Arrays;
