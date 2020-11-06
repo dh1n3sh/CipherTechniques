@@ -1,1 +1,3 @@
 com/cipher/ciphertechniques/RailFenceIT.class
+com/cipher/ciphertechniques/VignereCipherIT.class
+com/cipher/ciphertechniques/CaesarIT.class

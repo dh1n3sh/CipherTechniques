@@ -1,3 +1,5 @@
+package com.cipher.ciphertechniques;
+
 import java.util.*;
 import java.util.HashMap;
 import java.util.ArrayList;
@@ -9,7 +11,7 @@ public class PlayFair {
         int f_index = 0;
         for(int i=0; i<text.length(); i+=1){
             char ch1 = text.charAt(i);
-            char ch2 = '1';
+            char ch2;
             if (i+1<text.length()) ch2 = text.charAt(i+1);
             else
             {
@@ -19,7 +21,7 @@ public class PlayFair {
             }
             if(ch1=='j') ch1='i';
             if(ch2=='j') ch2='i';
-            if(off==1 && ch1==ch2 & ch1!='x')
+            if(off==1 && ch1==ch2 && ch1!='x')
             {
                 ch2='x';
                 filler.add(i+f_index+1);

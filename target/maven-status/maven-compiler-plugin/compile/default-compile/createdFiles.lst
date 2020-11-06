@@ -1,2 +1,6 @@
-com/cipher/ciphertechniques/DES.class
+com/cipher/ciphertechniques/VignereCipher.class
 com/cipher/ciphertechniques/RailFence.class
+com/cipher/ciphertechniques/HillCipher.class
+com/cipher/ciphertechniques/Caesar.class
+com/cipher/ciphertechniques/DES.class
+com/cipher/ciphertechniques/PlayFair.class
