@@ -42,94 +42,76 @@ public class DiffieHellman {
         if (!(new BigInteger(""+p).isProbablePrime(1))) return -1;
 
         int phi = p-1;
-        Set<Integer> factors = primeFactors(phi);
-        ArrayList<Integer> ans = new ArrayList<>();
-
-        for (int i=2;i<=phi;i++)
-        {
-            boolean flag = false;
-            for(int x : factors)
-            {
-                if (power(i,phi/x,p) == 1)
-                {
-                    flag = true;
-                    break;
-                }
-            }
-            if (!flag) return i; 
-            // ans.add(i);
+        ArrayList<Integer> fact = primeFactors(phi);
+        for (int res=2; res<=p; ++res) {
+            Boolean ok = true;
+            for (int i=0; i<fact.size() && ok; ++i)
+                ok &= powmod (res, phi / fact.get(i), p) != 1;
+            if (ok)  return res;
         }
-        if (ans.size() == 0) return -1;
-        int ind = (int)(Math.random()%ans.size());
-        return ans.get(ind);
-        // return -1;
+        return -1;
     }
-    public static Set<Integer> primeFactors(int p)
+    
+    public static ArrayList<Integer> primeFactors(int n)
     {
-        Set<Integer> facts = new HashSet<>();
-        while (p%2==0){
-            facts.add(2);
-            p/=2;
-        }
-        for(int i=3;i<=(int)Math.sqrt(p);i+=2){
-            while(p%i==0)
-            {
-                p/=i;
+        ArrayList<Integer> facts = new ArrayList<>();
+        for (int i=2; i*i<=n; ++i)
+            if (n % i == 0) {
                 facts.add(i);
+                while (n % i == 0)
+                    n /= i;
             }
-        }
-        if (p>2)
-            facts.add(p);
+       
         return facts;
 
     }
-    public static int power(int a,int b,int mod)
+    public static int powmod(int a,int b,int mod)
     {
         if (b==0)
             return 1;
         if (b==1)
             return a%mod;
-        int temp = power(a,b/2,mod);
+        int temp = powmod(a,b/2,mod);
         temp = (temp*temp);
         if (b%2!=0)
             temp*= a;
         return temp%mod;       
     }
-    static boolean millerTest(int d, int n) { 
-        int a = 2 + (int)(Math.random() % (n - 4)); 
-        int x = power(a, d, n); 
-      
-        if (x == 1 || x == n - 1) 
-            return true; 
-        while (d != n - 1) { 
-            x = (x * x) % n; 
-            d *= 2; 
-          
-            if (x == 1) 
-                return false; 
-            if (x == n - 1) 
-                return true; 
-        } 
-        return false; 
-    } 
-    static boolean isPrime(int n) { 
-        if (n <= 1 || n == 4) 
-            return false; 
-        if (n == 3) 
-            return true; 
-        int d = n - 1; 
-        int k=n-2;
-        while (d % 2 == 0) 
-        {
-            d /= 2;
-            // k++; 
-        }
-        for (int i = 0; i < k; i++) 
-            if (!millerTest(d, n)) 
-                return false; 
-      
-        return true; 
-    } 
+//    static boolean millerTest(int d, int n) { 
+//        int a = 2 + (int)(Math.random() % (n - 4)); 
+//        int x = powmod(a, d, n); 
+//      
+//        if (x == 1 || x == n - 1) 
+//            return true; 
+//        while (d != n - 1) { 
+//            x = (x * x) % n; 
+//            d *= 2; 
+//          
+//            if (x == 1) 
+//                return false; 
+//            if (x == n - 1) 
+//                return true; 
+//        } 
+//        return false; 
+//    } 
+//    static boolean isPrime(int n) { 
+//        if (n <= 1 || n == 4) 
+//            return false; 
+//        if (n == 3) 
+//            return true; 
+//        int d = n - 1; 
+//        int k=n-2;
+//        while (d % 2 == 0) 
+//        {
+//            d /= 2;
+//            // k++; 
+//        }
+//        for (int i = 0; i < k; i++) 
+//            if (!millerTest(d, n)) 
+//                return false; 
+//      
+//        return true; 
+//    } 
       
 }
 

@@ -5,12 +5,17 @@
  */
 package com.cipher.ciphertechniques;
 
-import java.io.DataInputStream;
-import java.io.IOException;
 import java.math.BigInteger;
 import java.util.Random;
 import java.util.*;
  
+/*
+p, q, two prime numbers   (private, chosen)
+n = pq    (public, calculated)
+e, with gcd(phi(n), e) = 1; 1 < e < phi(n)    (public, chosen)
+d = e^-1 (mod phi(n))   (private, calculated)
+*/
+
 public class RSA {
  
   private BigInteger p;
@@ -36,14 +41,7 @@ public class RSA {
        }
        d = e.modInverse(phi);
    }
- 
-   public RSA(BigInteger e, BigInteger d, BigInteger N)
-   {
-       this.e = e;
-       this.d = d;
-       this.N = N;
-   }
- 
+
    private static String bytesToString(byte[] encrypted)
    {
        String test = "";
@@ -75,29 +73,29 @@ public class RSA {
    int cont=1;
    while(cont!=0)
    {
-     System.out.println("Enter your choice (Please select 1 before encrypt or decrypt)\n1.Text \n2.Encrypt\n3.Decrypt");
-   int choice=in.nextInt();
-   in.nextLine();
-   switch(choice){
-     case 1: System.out.println("Enter the plain text:");
-             teststring = in.nextLine();
+    System.out.println("Enter your choice (Please select 1 before encrypt or decrypt)\n1.Text \n2.Encrypt\n3.Decrypt");
+    int choice=in.nextInt();
+    in.nextLine();
+    switch(choice){
+      case 1: System.out.println("Enter the plain text:");
+              teststring = in.nextLine();
+              break;
+      case 2: System.out.println("Encrypting String: " + teststring);
+              System.out.println("String in Bytes: "+ bytesToString(teststring.getBytes()));
+              encrypted = rsa.encrypt(teststring.getBytes());
+              System.out.println(encrypted);
+              break;
+      case 3:System.out.println("Decrypting : " + encrypted);
+             byte[] decrypted = rsa.decrypt(encrypted);
+             System.out.println("Decrypting Bytes: " + bytesToString(decrypted));
+             System.out.println("Decrypted String: " + new String(decrypted));
              break;
-     case 2: System.out.println("Encrypting String: " + teststring);
-             System.out.println("String in Bytes: "+ bytesToString(teststring.getBytes()));
-             encrypted = rsa.encrypt(teststring.getBytes());
-             System.out.println(encrypted);
-             break;
-     case 3:System.out.println("Decrypting : " + encrypted);
-            byte[] decrypted = rsa.decrypt(encrypted);
-            System.out.println("Decrypting Bytes: " + bytesToString(decrypted));
-            System.out.println("Decrypted String: " + new String(decrypted));
-            break;
-     default: System.out.println("Wrong choice");
-   }
- // sc.nextLine();
- System.out.println("Do you want to continue?\nYes(1)\nNo(0)");
- cont=in.nextInt();
- in.nextLine();
+      default: System.out.println("Wrong choice");
+    }
+    // sc.nextLine();
+    System.out.println("Do you want to continue?\nYes(1)\nNo(0)");
+    cont=in.nextInt();
+    in.nextLine();
    }
  }  
 }
