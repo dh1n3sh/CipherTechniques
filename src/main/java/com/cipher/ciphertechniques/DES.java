@@ -42,30 +42,30 @@ class DES {
 
 		// Permuted choice 1 Table 
 		int[] PC1 = { 57, 49, 41, 33, 25, 
-					17, 9, 1, 58, 50, 42, 34, 26, 
-					18, 10, 2, 59, 51, 43, 35, 27, 
-					19, 11, 3, 60, 52, 44, 36, 63, 
-					55, 47, 39, 31, 23, 15, 7, 62, 
-					54, 46, 38, 30, 22, 14, 6, 61, 
-					53, 45, 37, 29, 21, 13, 5, 28, 
-					20, 12, 4 }; 
+                            17, 9, 1, 58, 50, 42, 34, 26, 
+                            18, 10, 2, 59, 51, 43, 35, 27, 
+                            19, 11, 3, 60, 52, 44, 36, 63, 
+                            55, 47, 39, 31, 23, 15, 7, 62, 
+                            54, 46, 38, 30, 22, 14, 6, 61, 
+                            53, 45, 37, 29, 21, 13, 5, 28, 
+                            20, 12, 4 }; 
 
 		// Permuted choice 2 Table 
-		int[] PC2 = { 14, 17, 11, 24, 1, 5, 3, 
-					28, 15, 6, 21, 10, 23, 19, 12, 
-					4, 26, 8, 16, 7, 27, 20, 13, 2, 
-					41, 52, 31, 37, 47, 55, 30, 40, 
-					51, 45, 33, 48, 44, 49, 39, 56, 
-					34, 53, 46, 42, 50, 36, 29, 32 }; 
+		int[] PC2 = { 14, 17, 11, 24, 1, 5, 3, 28,
+                            15, 6, 21, 10, 23, 19, 12, 4,
+                            26, 8, 16, 7, 27, 20, 13, 2, 
+                            41, 52, 31, 37, 47, 55, 30, 40, 
+                            51, 45, 33, 48, 44, 49, 39, 56, 
+                            34, 53, 46, 42, 50, 36, 29, 32 }; 
 
 		// Expansion D-box Table 
 		int[] EP = { 32, 1, 2, 3, 4, 5, 4, 
-					5, 6, 7, 8, 9, 8, 9, 10, 
-					11, 12, 13, 12, 13, 14, 15, 
-					16, 17, 16, 17, 18, 19, 20, 
-					21, 20, 21, 22, 23, 24, 25, 
-					24, 25, 26, 27, 28, 29, 28, 
-					29, 30, 31, 32, 1 }; 
+                            5, 6, 7, 8, 9, 8, 9, 10, 
+                            11, 12, 13, 12, 13, 14, 15, 
+                            16, 17, 16, 17, 18, 19, 20, 
+                            21, 20, 21, 22, 23, 24, 25, 
+                            24, 25, 26, 27, 28, 29, 28, 
+                            29, 30, 31, 32, 1 }; 
 
 		// Straight Permutation Table 
 		int[] P = { 16, 7, 20, 21, 29, 12, 28, 
@@ -187,18 +187,18 @@ class DES {
 		// preparing 16 keys for 16 rounds 
 		String[] getKeys(String key) 
 		{ 
-			String keys[] = new String[16]; 
-			// first key permutation 
-			key = permutation(PC1, key); 
-			for (int i = 0; i < 16; i++) { 
-				key = leftCircularShift( 
-						key.substring(0, 7), shiftBits[i]) 
-					+ leftCircularShift(key.substring(7, 14), 
-										shiftBits[i]); 
-				// second key permutation 
-				keys[i] = permutation(PC2, key); 
-			} 
-			return keys; 
+                    String keys[] = new String[16]; 
+                    // first key permutation 
+                    key = permutation(PC1, key); 
+                    for (int i = 0; i < 16; i++) { 
+                            key = leftCircularShift( 
+                                            key.substring(0, 7), shiftBits[i]) 
+                                    + leftCircularShift(key.substring(7, 14), 
+                                                                            shiftBits[i]); 
+                            // second key permutation 
+                            keys[i] = permutation(PC2, key); 
+                    } 
+                    return keys; 
 		} 
 
 		// s-box lookup 
@@ -285,7 +285,7 @@ class DES {
 			plainText = permutation(IP1, plainText); 
 			return plainText; 
 		} 
-	} 
+	}
 	public static String ASCIItoHEX(String ascii) 
 	{  
 		String hex = ""; 
@@ -327,12 +327,12 @@ class DES {
 		System.out.println("1.Enter plain text");
 		System.out.println("2.Encrypt");
 		System.out.println("3.Decrypt");
-		System.out.print("Enter option : ");
+		System.out.println("Enter option : ");
 		o = input.nextInt();
 		if(o==1){
-			System.out.print("Enter plain text : ");
+			System.out.println("Enter plain text : ");
 			text = in.nextLine();
-			System.out.print("Enter key : ");
+			System.out.println("Enter key : ");
 			key = in.nextLine();
 			System.out.println("\nPlain text : " + text);
 			System.out.println("Key : " + key);
@@ -344,7 +344,6 @@ class DES {
 			while(k<j){
 				int cnt=0;
 				String t = "";
-				i=i+k;
 				StringBuilder enc = new StringBuilder("");
 				while(cnt<16){
 					enc.append(text.charAt(i));
@@ -352,7 +351,6 @@ class DES {
 					cnt++;
 				}
 				k++;
-				i--;
 				t = enc.toString();
 				e.append(cipher.encrypt(t,key));
 			}
@@ -380,7 +378,7 @@ class DES {
 			text = hexToASCII(d.toString());
 			System.out.println("\nDecrypted text : " + text.toUpperCase());
 		}
-		System.out.print("\nDo you want to continue? (0/1) : ");
+		System.out.println("\nDo you want to continue? (0/1) : ");
 		op = input.nextInt();
 		System.out.println();
 		}

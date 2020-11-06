@@ -12,10 +12,10 @@ public class VignereCipher {
             if(!Character.isLetter(c)){
                 cipher_text+=c;
             }else{
-            int x = (cipher_text.charAt(i) + off*  
-                        key.charAt(i%key.length()) + 26) %26; 
+            int x = (cipher_text.charAt(i)-'A' + off*  
+                        (key.charAt(i%key.length())-'A') + 26) %26; 
 
-            x+=65;
+            x=x+'A';
             orig_text+=(char)(x);
             }
         } 
@@ -30,8 +30,10 @@ public class VignereCipher {
         String keyword, key; 
         System.out.println("Enter a keyword:");
         key = in.nextLine();
+        key = key.toUpperCase();
         System.out.println("Enter the Plain text");
         str=in.nextLine();
+        str = str.toUpperCase();
         do{
             System.out.println("1. Encrypt");
             System.out.println("2. Decrypt");
