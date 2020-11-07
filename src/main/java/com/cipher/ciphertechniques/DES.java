@@ -341,19 +341,28 @@ class DES {
 			text = ASCIItoHEX(text);
 			int i=0,j,k=0;
 			j=text.length()/16;
-			while(k<j){
+			while(i<text.length()){
 				int cnt=0;
 				String t = "";
+                                i=i+k;
 				StringBuilder enc = new StringBuilder("");
-				while(cnt<16){
+				while(i<text.length() && cnt<16){
 					enc.append(text.charAt(i));
 					i++;
 					cnt++;
 				}
+                                while(cnt<16 && i>=text.length()){
+                                    enc.append('0');
+                                    i++;
+                                    cnt++;
+                                }
 				k++;
+                                i--;
 				t = enc.toString();
+                                System.out.println(hexToASCII(t));
 				e.append(cipher.encrypt(t,key));
 			}
+                        
 			System.out.println("\nEncrypted cipher : " + e.toString().toUpperCase());
 		}
 		else if(o==3){
