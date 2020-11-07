@@ -1,7 +1,5 @@
 # CipherTechniques
 <!---Click here to view the different files : [Cipher files](/src/main/java/com/cipher/ciphertechniques)    -->
-DES Algorithm : [Source 1](http://page.math.tu-berlin.de/~kant/teaching/hess/krypto-ws2006/des.htm)
-[Source 2](https://www.tutorialspoint.com/cryptography/data_encryption_standard.htm)   
 
 **Cipher Techniques included**  
 1 [Caesar](src/main/java/com/cipher/ciphertechniques/Caesar.java)   
@@ -22,3 +20,8 @@ DES Algorithm : [Source 1](http://page.math.tu-berlin.de/~kant/teaching/hess/kry
 15 [Euclid](src/main/java/com/cipher/ciphertechniques/Euclid.java)   
 16 [md5](src/main/java/com/cipher/ciphertechniques/md5.java)   
 17 [ModInverse](src/main/java/com/cipher/ciphertechniques/ModInverse.java)   
+
+**Algorithm References**   
+DES Algorithm : [Source 1](http://page.math.tu-berlin.de/~kant/teaching/hess/krypto-ws2006/des.htm)
+[Source 2](https://www.tutorialspoint.com/cryptography/data_encryption_standard.htm)   
+SHA1 Algorithm : [Brilliant.org](https://brilliant.org/wiki/secure-hashing-algorithms/)  
