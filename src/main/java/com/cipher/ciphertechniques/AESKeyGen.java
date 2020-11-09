@@ -1,4 +1,4 @@
-package com.cipher.ciphertechniques.AES;
+package com.cipher.ciphertechniques;
 
 import java.util.*;
 
