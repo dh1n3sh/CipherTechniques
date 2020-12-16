@@ -40,7 +40,8 @@ class DES {
 					26, 33, 1, 41, 9, 49, 
 					17, 57, 25 }; 
 
-		// Permuted choice 1 Table 
+		// Permuted choice 1 Table 52/7
+                
 		int[] PC1 = { 57, 49, 41, 33, 25, 
                             17, 9, 1, 58, 50, 42, 34, 26, 
                             18, 10, 2, 59, 51, 43, 35, 27, 
@@ -176,7 +177,7 @@ class DES {
 		{ 
 			int n = input.length() * 4; 
 			int perm[] = new int[n]; 
-			for (int i = 0; i < n - 1; i++) 
+			for (int i = 0; i < n - 1; i++)
 				perm[i] = (i + 2); 
 			perm[n - 1] = 1; 
 			while (numBits-- > 0) 
@@ -219,19 +220,19 @@ class DES {
 			return output; 
 		} 
 
-		String round(String input, String key, int num) 
+		String round(String input, String key) 
 		{ 
 			// fk 
 			String left = input.substring(0, 8); 
 			String temp = input.substring(8, 16); 
 			String right = temp; 
-			// Expansion permutation 
+			// Expansion permutation 32 -> 48
 			temp = permutation(EP, temp); 
-			// xor temp and round key 
+			// xor temp and round key 48
 			temp = xor(temp, key); 
-			// lookup in s-box table 
+			// lookup in s-box table 48 -> 32
 			temp = sBox(temp); 
-			// Straight D-box 
+			// Straight p-box 32
 			temp = permutation(P, temp); 
 			// xor 
 			left = xor(left, temp); 
@@ -251,7 +252,8 @@ class DES {
 
 			// 16 rounds 
 			for (i = 0; i < 16; i++) { 
-				plainText = round(plainText, keys[i], i);
+                                System.out.println(keys[i]);
+				plainText = round(plainText, keys[i]);
                                 System.out.println("Round "+(i+1)+": "+hextoBin(plainText));
 			} 
 
@@ -275,7 +277,7 @@ class DES {
 
 			// 16-rounds 
 			for (i = 15; i > -1; i--) { 
-				plainText = round(plainText, keys[i], 15 - i); 
+				plainText = round(plainText, keys[i]); 
                                 System.out.println("Round "+(15-i+1)+": "+hextoBin(plainText));
 			} 
 
@@ -313,20 +315,21 @@ class DES {
 	} 
 	public static void main(String args[]) 
 	{ 
-		String text = ""; 
-		String key = ""; 
-		int op=1,o;
+		String text = "Hello world"; 
+		String key = "0f1571c947d9e859"; 
+		int o=1;
 		Scanner input = new Scanner(System.in);
 		Scanner in = new Scanner(System.in);
 		DES1 cipher = new DES1();
 		StringBuilder e = new StringBuilder("");
 		StringBuilder d = new StringBuilder("");
 
-		while(op==1){ 
+		while(o!=4){ 
 		System.out.println("----DES----");
 		System.out.println("1.Enter plain text");
 		System.out.println("2.Encrypt");
 		System.out.println("3.Decrypt");
+                System.out.println("4.Exit");
 		System.out.println("Enter option : ");
 		o = input.nextInt();
 		if(o==1){
@@ -339,12 +342,10 @@ class DES {
 		} 
 		else if(o==2){
 			text = ASCIItoHEX(text);
-			int i=0,j,k=0;
-			j=text.length()/16;
+			int i=0;
 			while(i<text.length()){
 				int cnt=0;
 				String t = "";
-                                i=i+k;
 				StringBuilder enc = new StringBuilder("");
 				while(i<text.length() && cnt<16){
 					enc.append(text.charAt(i));
@@ -356,39 +357,33 @@ class DES {
                                     i++;
                                     cnt++;
                                 }
-				k++;
-                                i--;
 				t = enc.toString();
                                 System.out.println(hexToASCII(t));
+                                System.out.println(t);
 				e.append(cipher.encrypt(t,key));
-			}
-                        
+			}                     
 			System.out.println("\nEncrypted cipher : " + e.toString().toUpperCase());
 		}
 		else if(o==3){
 			text = e.toString();
 			int i=0,j,k=0;
 			j=text.length()/16;
-			while(k<j){
+			while(i<text.length()){
 				int cnt=0;
 				String t = "";
-				i=i+k;
 				StringBuilder dec = new StringBuilder("");
 				while(cnt<16){
 					dec.append(text.charAt(i));
 					i++;
 					cnt++;
 				}
-				k++;
-				i--;
 				t = dec.toString();
 				d.append(cipher.decrypt(t,key));
 			}
 			text = hexToASCII(d.toString());
 			System.out.println("\nDecrypted text : " + text.toUpperCase());
 		}
-		System.out.println("\nDo you want to continue? (0/1) : ");
-		op = input.nextInt();
+		
 		System.out.println();
 		}
 	} 
