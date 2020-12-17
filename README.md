@@ -25,4 +25,8 @@
 DES Algorithm : [Source 1](http://page.math.tu-berlin.de/~kant/teaching/hess/krypto-ws2006/des.htm)
 [Source 2](https://www.tutorialspoint.com/cryptography/data_encryption_standard.htm)   
 SHA1 Algorithm : [Brilliant.org](https://brilliant.org/wiki/secure-hashing-algorithms/)  
-AES : [Key Expansion](Algorithms/AESKeyGen.md)  
+AES : [Source 1](https://www.tutorialspoint.com/cryptography/advanced_encryption_standard.htm)
+[Source 2](https://www.educative.io/edpresso/what-is-the-aes-algorithm)
+[Key Expansion](Algorithms/AESKeyGen.md) 
+Finding primitive root : [primitive root](https://cp-algorithms.com/algebra/primitive-root.html)    
+
