@@ -19,7 +19,9 @@
 15 [Euclid](src/main/java/com/cipher/ciphertechniques/Euclid.java)   
 16 [MD5](src/main/java/com/cipher/ciphertechniques/md5.java)   
 17 [ModInverse](src/main/java/com/cipher/ciphertechniques/ModInverse.java)  
-18 [AES Key Generation](src/main/java/com/cipher/ciphertechniques/AESKeyGen.java)   
+18 [AES Key Generation](src/main/java/com/cipher/ciphertechniques/AESKeyGen.java)  
+19 [MD5 with inbuilt libraries](src/main/java/com/cipher/ciphertechniques/md5_with_library.java)    
+20 [SHA1 with inbuilt libraries](src/main/java/com/cipher/ciphertechniques/sha1_with_library.java)    
 
 **Algorithm References**   
 DES Algorithm : [Source 1](http://page.math.tu-berlin.de/~kant/teaching/hess/krypto-ws2006/des.htm)
