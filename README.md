@@ -28,5 +28,6 @@ SHA1 Algorithm : [Brilliant.org](https://brilliant.org/wiki/secure-hashing-algor
 AES : [Source 1](https://www.tutorialspoint.com/cryptography/advanced_encryption_standard.htm)
 [Source 2](https://www.educative.io/edpresso/what-is-the-aes-algorithm)
 [Key Expansion](Algorithms/AESKeyGen.md)    
-Finding primitive root : [primitive root](https://cp-algorithms.com/algebra/primitive-root.html)    
+RSA : [wikipedia](https://simple.wikipedia.org/wiki/RSA_algorithm#:~:text=RSA%20(Rivest%E2%80%93Shamir%E2%80%93Adleman,can%20be%20given%20to%20anyone)    
+Finding primitive root : [primitive root](https://cp-algorithms.com/algebra/primitive-root.html)     
 
