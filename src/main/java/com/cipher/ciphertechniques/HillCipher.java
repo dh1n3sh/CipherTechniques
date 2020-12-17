@@ -29,6 +29,7 @@ public class HillCipher {
             det = det + (key[0][i] * (key[1][(i + 1) % 3] * key[2][(i + 2) % 3]
                     - key[1][(i + 2) % 3] * key[2][(i + 1) % 3]));
         }
+        while(det<0) det+=26; 
         det %= 26;
         return det;
     }
